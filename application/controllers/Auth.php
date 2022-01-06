@@ -62,7 +62,7 @@ class Auth extends CI_Controller {
                         'status' => $user1['status']
                     ];
                     $this->session->set_userdata($data);
-                    redirect(base_url('gedung'));
+                    redirect(base_url('master/karyawan'));
                 } else {
 
                     $attemp = array(
