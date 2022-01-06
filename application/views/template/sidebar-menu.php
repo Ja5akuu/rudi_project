@@ -16,10 +16,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <ul class="dropdown-menu">
               <li  class="<?php echo $this->uri->segment(2) == 'user' ? 'active' : ''; ?>"><a class="nav-link"  href="<?php echo base_url(); ?>master/karyawan">User</a></li>
                 <li  class="<?php echo $this->uri->segment(2) == 'karyawan' ? 'active' : ''; ?>"><a class="nav-link"  href="<?php echo base_url(); ?>master/karyawan">Karyawan</a></li>
-                <li  class="<?php echo $this->uri->segment(2) == 'Dept' ? 'active' : ''; ?>"><a class="nav-link"  href="<?php echo base_url(); ?>master/karyawan">Dept</a></li>
+                <li  class="<?php echo $this->uri->segment(2) == 'Dept' ? 'active' : ''; ?>"><a class="nav-link"  href="<?php echo base_url(); ?>master/dept">Dept</a></li>
               </ul>
             </li>
-            <li class="<?php echo $this->uri->segment(2) == 'gedung' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>gedung"><i class="fas fa-pencil-ruler"></i> <span>Gedung</span></a></li>
+            <li class="<?php echo $this->uri->segment(2) == 'gedung' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>gedung"><i class="fas fa-user"></i> <span>Kontrak Karyawan</span></a></li>
           </ul>
 
           <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
