@@ -48,7 +48,7 @@ class Karyawan extends CI_Controller {
 	public function add()
 	{
 
-		$data['kode_barang'] = $this->ModelKaryawan->CreateCode();
+		// $data['kode_barang'] = $this->ModelKaryawan->CreateCode();
 
 		$data['title'] = 'MASTER KARYAWAN';
 		$data['subtitle'] = 'MASTER KARYAWAN';

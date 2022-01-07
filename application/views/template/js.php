@@ -18,7 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
    <!-- Page Specific JS File -->
   <script src="<?php echo base_url(); ?>assets/js/page/modules-datatables.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/forms-advanced-forms.js"></script>
 
+  <script src="<?php echo base_url(); ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
   <!-- Template JS File -->
   <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>

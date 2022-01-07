@@ -15,7 +15,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                  	<a href="karyawan/add">
+                  	<a href="kontrak/add">
                    		<button class="btn btn-success" ><i class="glyphicon glyphicon-plus"></i> Add</button>
 					</a>
                   </div>
@@ -27,9 +27,10 @@
                             <th>ID</th>
                             <th>NIK</th>
                             <th>Nama</th>
-                            <th>Jenis Kelamin</th>
-                            <th>HP</th>
-                            <th>Alamat</th>
+                            <th>Dept</th>
+                            <th>Join Date</th>
+                            <th>Close Date</th>
+                            <th>Kontrak Ke</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -41,12 +42,13 @@
                             <td><?= $data->id ?></td>
                             <td><?= $data->nik ?></td>
                             <td><?= $data->nama ?></td>
-                            <td><?= $data->jkel ?></td>
-                            <td><?= $data->hp ?></td>
-                            <td><?= $data->alamat ?></td>
+                            <td><?= $data->dept ?></td>
+                            <td><?= $data->join_date ?></td>
+                            <td><?= $data->close_date ?></td>
+                            <td><?= $data->kontrak_ke ?></td>
                             <td>
-                            <a href="<?= base_url('master/karyawan/edit/').$data->id ;?>" class="btn btn-primary">Edit</a>
-                            <a href="<?= base_url('master/karyawan/delete/').$data->id ;?>" class="btn btn-danger" onClick="return confirmDialog()">Delete</a>
+                            <a href="<?= base_url('master/kontrak/edit/').$data->id ;?>" class="btn btn-primary">Edit</a>
+                            <a href="<?= base_url('master/kontrak/delete/').$data->id ;?>" class="btn btn-danger" onClick="return confirmDialog()">Delete</a>
                             </td>
                           </tr>
                           <?php } ?>
