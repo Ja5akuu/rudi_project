@@ -21,7 +21,7 @@ class Dept extends CI_Controller {
 		$data['title'] = 'MASTER Dept';
 		$data['subtitle'] = 'MASTER Dept';
         
-        $this->render_template->main('master/Dept/content',$data);
+        $this->render_template->main('master/dept/content',$data);
         		
 	}
 
@@ -32,7 +32,7 @@ class Dept extends CI_Controller {
 
 		$data['title'] = 'MASTER Dept';
 		$data['subtitle'] = 'MASTER Dept';
-		$this->render_template->main('master/Dept/add',$data);
+		$this->render_template->main('master/dept/add',$data);
 	}
 
     #create
@@ -57,11 +57,11 @@ class Dept extends CI_Controller {
              'id' => $id
          );
  
-        $data['kode'] = $this->ModelDept->edit($where,'tb_Dept')->result();
+        $data['kode'] = $this->ModelDept->edit($where,'tb_dept')->result();
 		$data['title'] = 'MASTER Dept';
 		$data['subtitle'] = 'MASTER Dept';
         
-        $this->render_template->main('master/Dept/edit',$data);
+        $this->render_template->main('master/dept/edit',$data);
      }
  
      #update

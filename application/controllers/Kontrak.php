@@ -43,7 +43,7 @@ class Kontrak extends CI_Controller {
 		$data['title'] = 'Kontrak Karyawan';
 		$data['subtitle'] = 'Kontrak Karyawan';
         
-        $this->render_template->main('Kontrak/content',$data);
+        $this->render_template->main('kontrak/content',$data);
         		
 	}
 
@@ -145,7 +145,7 @@ class Kontrak extends CI_Controller {
      public function delete($id)
      {
          $where = array('id'=>$id);
-         $this->ModelKontrak->delete($where,'tb_Kontrak');
+         $this->ModelKontrak->delete($where,'tb_kontrak');
          $this->session->set_flashdata('Succes','Data Delete !');
          redirect(base_url('Kontrak'));
      }

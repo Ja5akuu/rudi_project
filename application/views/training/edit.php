@@ -14,42 +14,50 @@
        <div class="row">
          <div class="col-12 col-md-12 col-lg-12">
             <?php
-                foreach ($kode as $data) {
+                foreach ($Traininig as $data1) {
                   # code...
                 ?>
-           <form method='post' action='<?= base_url('master/kontrak/update') ?>' enctype="multipart/form-data">
-             <div class="card">
+           <form method='post' action='<?= base_url('Training/update') ?>' enctype="multipart/form-data">
+					 <div class="card">
                <div class="card-body">
                  <!-- connection corridor -->
                    <div class="form-row field_wrapperz">
                         <div class="form-group col-md-4 col-12">
                         <label>Nik :</label>
-                        <input type="hidden" name="id" value="<?= $data->id ?>">
+												<input type="hidden" name="id" class="form-control" value="<?= $data1->id ?>" require >
                         <select class="form-control select2" name="nik">
-                          <?php foreach ($karyawan as $data1) { ?>
-                            <option value="<?= $data->nik ?>" <?php  if($data->nik == $data1->nik) { echo "selected" ;} ?> ><?= $data->nik ?> - <?= $data1->nama ?></option>
+                          <?php foreach ($karyawan as $data) { ?>
+                            <option value="<?= $data->nik ?>"><?= $data->nik ?> - <?= $data->nama ?></option>
                           <?php } ?>
                         </select>
                        </div>
                        <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Dept :</label>
                            <select name="dept" class="form-control">
-                              <?php foreach ($dept as $data1) { ?>
-                                  <option value="<?= $data->dept ?>" <?php  if($data->dept == $data1->dept) { echo "selected" ;} ?>><?= $data->dept ?></option>
+                              <?php foreach ($dept as $data) { ?>
+                                  <option value="<?= $data->dept ?>"><?= $data->dept ?></option>
                               <?php } ?>
                            </select>
                        </div>
                         <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Kontrak Ke :</label>
-                          <input type="text" name="kontrakke" class="form-control" require value="<?= $data->kontrak_ke ?>" >
+                         <label for="inputPassword4">Nama Trainer</label>
+                          <input type="text" name="namatrainer" class="form-control" value="<?= $data1->nama_trainer ?>" require >
+                       </div>
+                        <div class="form-group col-md-4 col-12">
+                         <label for="inputPassword4">Trainer</label>
+                          <input type="text" name="trainer" class="form-control" value="<?= $data1->trainer ?>" require >
                        </div>
                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Join Date :</label>
-                          <input type="date" name="joindate" class="form-control" require value="<?= $data->join_date ?>">
+                         <label for="inputPassword4">Training Date :</label>
+                          <input type="date" name="trainingdate" class="form-control" value="<?= $data1->training_date ?>" require >
                        </div>
                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Close Date :</label>
-                          <input type="date" name="closedate" class="form-control" require value="<?= $data->close_date ?>">
+                         <label for="inputPassword4">Total Waktu :</label>
+                          <input type="text" name="totalwaktu" class="form-control" value="<?= $data1->total_waktu ?>" require >
+                       </div>
+                        <div class="form-group col-md-4 col-12">
+                         <label for="inputPassword4">Sertifikat :</label>
+                          <input type="file" name="gambar[]" class="form-control" multiple>
                        </div>
                    </div>
                    <!-- end coriddor -->

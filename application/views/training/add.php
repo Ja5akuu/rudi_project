@@ -13,7 +13,7 @@
      <div class="section-body">
        <div class="row">
          <div class="col-12 col-md-12 col-lg-12">
-           <form method='post' action='<?= base_url('master/kontrak/create') ?>' enctype="multipart/form-data">
+           <form method='post' action='<?= base_url('Training/create') ?>' enctype="multipart/form-data">
              <div class="card">
                <div class="card-body">
                  <!-- connection corridor -->
@@ -48,27 +48,11 @@
                        </div>
                        <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Total Waktu :</label>
-                          <input type="time" name="closedate" class="form-control" require >
+                          <input type="text" name="totalwaktu" class="form-control" require >
                        </div>
                         <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Sertifikat :</label>
-                          <input type="file" name="closedate" class="form-control" require >
-                       </div>
-                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Sertifikat :</label>
-                          <input type="file" name="closedate" class="form-control" require >
-                       </div>
-                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Sertifikat :</label>
-                          <input type="file" name="closedate" class="form-control" require >
-                       </div>
-                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Sertifikat :</label>
-                          <input type="file" name="closedate" class="form-control" require >
-                       </div>
-                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Sertifikat :</label>
-                          <input type="file" name="closedate" class="form-control" require >
+                          <input type="file" name="gambar[]" class="form-control" require multiple>
                        </div>
                    </div>
                    <!-- end coriddor -->
