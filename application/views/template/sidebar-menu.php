@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>
             <li class="<?php echo $this->uri->segment(1) == 'Kontrak' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>Kontrak"><i class="fas fa-user"></i> <span>Kontrak Karyawan</span></a></li>
             <li class="<?php echo $this->uri->segment(1) == 'Training' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>Training"><i class="fas fa-book"></i> <span>Training Karyawan</span></a></li>
+            <li class="<?php echo $this->uri->segment(1) == 'Lisensi' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>Lisensi"><i class="fas fa-book"></i> <span>Lisensi Karyawan</span></a></li>
           </ul>
 
           <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
