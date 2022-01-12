@@ -42,13 +42,11 @@ class ModelLisensi extends CI_Model {
      }
 
      #edit
-     public function ViewTraining($where)
+     public function ViewLisensi($where)
      {
-         $this->db->select('tb_training.id,tb_karyawan.nik,tb_karyawan.nama,tb_kontrak.dept,tb_training.nama_trainer,tb_training.trainer,tb_training.training_date,tb_training.total_waktu');
-        $this->db->from('tb_training');
-        $this->db->join('tb_kontrak',"tb_training.nik = tb_kontrak.nik");
-        $this->db->join('tb_karyawan',"tb_training.nik = tb_karyawan.nik");
-        $this->db->where('tb_training.id', $where);
+         $this->db->select('*');
+        $this->db->from('tb_lisensi');
+        $this->db->where('id', $where);
         $str = $this->db->get();
         return $str;
      }

@@ -92,9 +92,9 @@ class Lisensi extends CI_Controller {
 
 			$where = $id;
 
-			$data['Traininig'] = $this->ModelLisensi->ViewLisensi($where)->result();
+			$data['Lisensi'] = $this->ModelLisensi->ViewLisensi($where)->result();
 
-			$data['karyawan'] = $this->ModelKaryawan->ViewKaryawan()->result();
+			$data['trainer'] = $this->ModelLisensi->ViewTrainings()->result();
 			$data['dept'] = $this->ModelDept->ViewDept()->result();
 
 			$data['title'] = 'Lisensi Karyawan';
@@ -103,18 +103,6 @@ class Lisensi extends CI_Controller {
 			$this->render_template->main('Lisensi/edit',$data);
 		}
 
-      #edit
-		public function view($id)
-		{
-			$where = $id;
-
-			$data['Traininig'] = $this->ModelLisensi->ViewLisensi($where)->result();
-			$data['Traininig1'] = $this->ModelLisensi->ViewLisensi1($where)->result();
-			$data['title'] = 'Lisensi Karyawan';
-			$data['subtitle'] = 'Lisensi Karyawan';
-
-			$this->render_template->main('Lisensi/view',$data);
-		}
 
      #update
 		public function update()
@@ -133,20 +121,18 @@ class Lisensi extends CI_Controller {
 			} else {
              # code..
 				$id = $this->input->post('id');
-				$nik = $this->input->post('nik');
-				$dept =$this->input->post('dept');
-				$namatrainer = $this->input->post('namatrainer');
 				$trainer = $this->input->post('trainer');
-				$Lisensidate = $this->input->post('Lisensidate');
-				$totalwaktu = $this->input->post('totalwaktu');
+				$nama_trainer =$this->input->post('nama_trainer');
+				$nik = $this->input->post('nik');
+				$dept = $this->input->post('dept');
+				$expdate = $this->input->post('expdate');
 
 				$data = array(
-					'nik' => $nik, 
-					'dept' =>$dept , 
-					'nama_trainer' =>$namatrainer , 
-					'trainer' =>$trainer ,
-					'Lisensi_date' =>$Lisensidate ,
-					'total_waktu' => $totalwaktu
+					'trainer' => $trainer, 
+					'nama_trainer' =>$nama_trainer , 
+					'nik' =>$nik , 
+					'dept' =>$dept ,
+					'expdate' =>$expdate 
 				);
 
 
@@ -154,88 +140,9 @@ class Lisensi extends CI_Controller {
 					'id' => $id ,
 				);
 
-				$jumlahData = count($_FILES['gambar']['name']);
-
-			// if (!empty($_FILES['gambar']['name'])) {
-			// 	# code...
-			// 	echo "data tidak ksosnm";
-			// } else {
-			// 	# code...
-			// 		echo "data  ksosnm";
-			// }
-
-
-				if ($jumlahData > 0) {
-
-					$datafile = $this->ModelLisensi->UserFile($nik);
-
-					if ($datafile->num_rows() > 0) {
-						foreach ($datafile->result() as $row)
-						{
-							for ($i=0; $i < $datafile->num_rows() ; $i++) 
-							{ 
-	            		# code...
-								$namafile = $row->file1;
-								$pathfile ='./assets/upload/'.$namafile.'';
-								unlink($pathfile) ;
-							}
-						}
-					}
-
-		# code...
-			// Lakukan Perulangan dengan maksimal ulang Jumlah File yang dipilih
-					for ($i=0; $i < $jumlahData ; $i++):
-
-				// Inisialisasi Nama,Tipe,Dll.
-						$_FILES['file']['name']     = $_FILES['gambar']['name'][$i];
-						$_FILES['file']['type']     = $_FILES['gambar']['type'][$i];
-						$_FILES['file']['tmp_name'] = $_FILES['gambar']['tmp_name'][$i];
-						$_FILES['file']['size']     = $_FILES['gambar']['size'][$i];
-
-				// Konfigurasi Upload
-						$config['upload_path']          = './assets/upload/';
-						$config['allowed_types']        = 'gif|jpg|png|pdf';
-
-				// Memanggil Library Upload dan Setting Konfigurasi
-						$this->load->library('upload', $config);
-						$this->upload->initialize($config);
-
-				if($this->upload->do_upload('file')){ // Jika Berhasil Upload
-
-					$fileData = $this->upload->data(); // Lakukan Upload Data
-
-					// Membuat Variable untuk dimasukkan ke Database
-					$uploadData[$i]['nik'] = $nik;
-					$uploadData[$i]['file1'] = $fileData['file_name']; 
-				}else{
-					$error = $this->upload->display_errors();
-					$this->session->set_flashdata('error', $error);
-					redirect(base_url('Lisensi'));
-				}
-
-			endfor; // Penutup For
-
-			if($uploadData !== null){ // Jika Berhasil Upload
-				//delete data
-				$where2 = array(
-					'nik' => $nik ,
-				);
-
-				$this->ModelLisensi->delete($where2,'tb_Lisensifile');
-				// Insert ke Database 
-				$insert = $this->ModelLisensi->upload($uploadData);
 				
-				if($insert){ // Jika Berhasil Insert
-
 					$this->ModelLisensi->update($where1,$data,'tb_Lisensi');
 					$this->session->set_flashdata('Succes','Data Updated !');
-
-					redirect(base_url('Lisensi'));
-				}else{ // Jika Tidak Berhasil Insert
-					$this->session->set_flashdata('error', 'Data  gagal di Simpan!');
-					redirect(base_url('Lisensi'));
-				}
-
 
 			}
 
