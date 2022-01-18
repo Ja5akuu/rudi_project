@@ -23,7 +23,7 @@
                  <!-- connection corridor -->
                    <div class="form-row field_wrapperz">
                        <div class="form-group col-md-4 col-6">
-                         <label for="inputEmail4">NIK</label>
+                         <label for="inputEmail4">Dept</label>
                           <input type="hidden" name="id" class="form-control" value="<?= $data->id; ?>">
                           <input type="text" name="dept" class="form-control" value="<?= $data->dept; ?>" require >
                        </div>

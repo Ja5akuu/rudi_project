@@ -42,6 +42,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             ?>       
         });
   </script>
+  <script>
+    
+    function cek_karyawan() {
+      var id = $("#nik").val();
+      $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('Training/get_karyawan') ?>",
+        dataType: "JSON",
+        data: {
+          nik: id
+        },
+        cache: false,
+        success: function(data) {
+
+          $.each(data, function(ktp, kota) {
+            $('#nama').val(data[0].nama);
+            $('#dept').val(data[0].dept);
+            
+          });
+        }
+      });
+      return false;
+    }
+  </script>
   
 
 </body>

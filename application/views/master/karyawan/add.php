@@ -17,42 +17,62 @@
              <div class="card">
                <div class="card-body">
                  <!-- connection corridor -->
-                   <div class="form-row field_wrapperz">
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputEmail4">NIK</label>
-                          <input type="text" name="nik" class="form-control" placeholder="NIK" require >
-                       </div>
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Nama :</label>
-                          <input type="text" name="nama" class="form-control" placeholder="Nama"  require>
-                       </div>
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Jenis Kelamin :</label>
-                           <select name="jkel" class="form-control">
-                             <option value="Laki-laki">Laki-laki</option>
-                             <option value="Perempuan">Perempuan</option>
-                           </select>
-                       </div>
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Tlp/HP :</label>
-                          <input type="number" name="hp" class="form-control" placeholder="02745135658" require >
-                       </div>
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Alamat</label>
-                          <textarea class="form-control" name="alamat" placeholder="Jl.demo"  ></textarea>
-                       </div>
+                 <div class="form-row field_wrapperz">
+                   <div class="form-group col-md-4 col-12">
+                     <label for="inputEmail4">NIK</label>
+                     <input type="text" name="nik" class="form-control" placeholder="NIK" require >
                    </div>
-                   <!-- end coriddor -->
-                  
+                   <div class="form-group col-md-4 col-12">
+                     <label for="inputPassword4">Nama :</label>
+                     <input type="text" name="nama" class="form-control" placeholder="Nama"  require>
+                   </div>
+                   <div class="form-group col-md-4 col-12">
+                     <label for="inputPassword4">Jenis Kelamin :</label>
+                     <select name="jkel" class="form-control">
+                       <option value="Laki-laki">Laki-laki</option>
+                       <option value="Perempuan">Perempuan</option>
+                     </select>
+                   </div>
+                   <div class="form-group col-md-4 col-12">
+                     <label for="inputPassword4">Tlp/HP :</label>
+                     <input type="number" name="hp" class="form-control" placeholder="02745135658" require >
+                   </div>
+                   <div class="form-group col-md-4 col-12">
+                     <label for="inputPassword4">Alamat</label>
+                     <textarea class="form-control" name="alamat" placeholder="Jl.demo"  ></textarea>
+                   </div>
+                   <div class="form-group col-md-4 col-12">
+                     <label for="inputPassword4">Dept :</label>
+                     <select name="dept" class="form-control">
+                      <?php foreach ($dept as $data) { ?>
+                        <option value="<?= $data->dept ?>"><?= $data->dept ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Join Date :</label>
+                   <input type="date" name="joindate" class="form-control" require >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Close Date :</label>
+                   <input type="date" name="closedate" class="form-control" require >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Kontrak Ke :</label>
+                   <input type="text" name="kontrakke" class="form-control" require >
+                 </div>
+               </div>
+               <!-- end coriddor -->
 
-               </div>
-               <div class="card-footer">
-                 <button class="btn btn-primary">Submit</button>
-               </div>
+
              </div>
+             <div class="card-footer">
+               <button class="btn btn-primary">Submit</button>
+             </div>
+           </div>
          </div>
-         </form>
-       </div>
+       </form>
      </div>
-   </section>
- </div>
+   </div>
+ </section>
+</div>

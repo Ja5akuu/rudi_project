@@ -103,6 +103,23 @@ class Lisensi extends CI_Controller {
 			$this->render_template->main('Lisensi/edit',$data);
 		}
 
+		 #edit
+		public function view($id)
+		{
+
+			$where = $id;
+
+			$data['Lisensi'] = $this->ModelLisensi->ViewLisensi($where)->result();
+
+			$data['trainer'] = $this->ModelLisensi->ViewTrainings()->result();
+			$data['dept'] = $this->ModelDept->ViewDept()->result();
+
+			$data['title'] = 'Lisensi Karyawan';
+			$data['subtitle'] = 'Lisensi Karyawan';
+
+			$this->render_template->main('Lisensi/view',$data);
+		}
+
 
      #update
 		public function update()
@@ -141,27 +158,21 @@ class Lisensi extends CI_Controller {
 				);
 
 				
-					$this->ModelLisensi->update($where1,$data,'tb_Lisensi');
-					$this->session->set_flashdata('Succes','Data Updated !');
-
-			}
-
-		} else {
-		# code...
+				$this->ModelLisensi->update($where1,$data,'tb_Lisensi');
+				$this->session->set_flashdata('Succes','Data Updated !');
+				redirect(base_url('Lisensi'));
 		}
-
-
 	}
-}
+
 
      #delete
-public function delete($id)
-{
-	$where = array('id'=>$id);
-	$this->ModelLisensi->delete($where,'tb_Lisensi');
-	$this->session->set_flashdata('Succes','Data Delete !');
-	redirect(base_url('Lisensi'));
-}
+	public function delete($id)
+	{
+		$where = array('id'=>$id);
+		$this->ModelLisensi->delete($where,'tb_Lisensi');
+		$this->session->set_flashdata('Succes','Data Delete !');
+		redirect(base_url('Lisensi'));
+	}
 
 }
 

@@ -17,53 +17,55 @@
              <div class="card">
                <div class="card-body">
                  <!-- connection corridor -->
-                   <div class="form-row field_wrapperz">
-                        <div class="form-group col-md-4 col-12">
-                        <label>Nik :</label>
-                        <select class="form-control select2" name="nik">
-                          <?php foreach ($karyawan as $data) { ?>
-                            <option value="<?= $data->nik ?>"><?= $data->nik ?> - <?= $data->nama ?></option>
-                          <?php } ?>
-                        </select>
-                       </div>
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Dept :</label>
-                           <select name="dept" class="form-control">
-                              <?php foreach ($dept as $data) { ?>
-                                  <option value="<?= $data->dept ?>"><?= $data->dept ?></option>
-                              <?php } ?>
-                           </select>
-                       </div>
-                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Nama Trainer</label>
-                          <input type="text" name="namatrainer" class="form-control" require >
-                       </div>
-                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Trainer</label>
-                          <input type="text" name="trainer" class="form-control" require >
-                       </div>
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Training Date :</label>
-                          <input type="date" name="trainingdate" class="form-control" require >
-                       </div>
-                       <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Total Waktu :</label>
-                          <input type="text" name="totalwaktu" class="form-control" require >
-                       </div>
-                        <div class="form-group col-md-4 col-12">
-                         <label for="inputPassword4">Sertifikat :</label>
-                          <input type="file" name="gambar[]" class="form-control" require multiple>
-                       </div>
-                   </div>
-                   <!-- end coriddor -->
+                 <div class="form-row field_wrapperz">
+                  <div class="form-group col-md-4 col-12">
+                    <label>Nik :</label>
+                    <input type="hidden" name="id" id="id" class="form-control" value="<?= $kode ;?>" readonly >
+                    <select class="form-control select2" name="nik" id="nik" onchange="cek_karyawan()" required>
+                      <?php foreach ($karyawan as $data) { ?>
+                         <option value=""></option>
+                        <option value="<?= $data->nik ?>"><?= $data->nik ?> - <?= $data->nama ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Nama</label>
+                   <input type="text" name="nama" id="nama" class="form-control" readonly >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                  <label for="inputPassword4">Dept</label>
+                   <input type="text" name="dept" id="dept" class="form-control" readonly >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Nama Trainer</label>
+                   <input type="text" name="namatrainer" class="form-control" required >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Trainer</label>
+                   <input type="text" name="trainer" class="form-control" required >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Training Date :</label>
+                   <input type="date" name="trainingdate" class="form-control" required >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Total Waktu :</label>
+                   <input type="text" name="totalwaktu" class="form-control" required >
+                 </div>
+                 <div class="form-group col-md-4 col-12">
+                   <label for="inputPassword4">Sertifikat :</label>
+                   <input type="file" name="gambar[]" class="form-control" required multiple>
+                 </div>
                </div>
-               <div class="card-footer">
-                 <button class="btn btn-primary">Submit</button>
-               </div>
+               <!-- end coriddor -->
              </div>
+             <div class="card-footer">
+               <button class="btn btn-primary">Submit</button>
+             </div>
+           </div>
          </div>
-         </form>
-       </div>
+       </form>
      </div>
-   </section>
- </div>
+   </div>
+ </section>
+</div>

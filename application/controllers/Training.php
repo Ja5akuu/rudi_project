@@ -17,6 +17,15 @@ class Training extends CI_Controller {
 		$this->load->helper('file');
 	}
 
+
+	function get_karyawan()
+	{
+		$id = $this->input->post('nik');
+		$data = $this->ModelTraining->get_karyawan_id($id);
+
+		echo json_encode($data);
+	}
+
 	private function _uploadImage()
 	{
 		$config['upload_path']          = './upload/';
@@ -51,6 +60,7 @@ class Training extends CI_Controller {
     public function add()
     {
 
+    	$data['kode'] = $this->ModelTraining->CreateCode();
     	$data['karyawan'] = $this->ModelKaryawan->ViewKaryawan()->result();
     	$data['dept'] = $this->ModelDept->ViewDept()->result();
 
@@ -62,15 +72,19 @@ class Training extends CI_Controller {
     #create
     public function create()
     {
+    	$id = $this->input->post('id');
     	$nik = $this->input->post('nik');
     	$dept =$this->input->post('dept');
+    	$nama =$this->input->post('nama');
     	$namatrainer = $this->input->post('namatrainer');
     	$trainer = $this->input->post('trainer');
     	$trainingdate = $this->input->post('trainingdate');
     	$totalwaktu = $this->input->post('totalwaktu');
 
     	$data = array(
+    		'id'=>$id,
     		'nik' => $nik, 
+    		'nama' => $nama, 
     		'dept' =>$dept , 
     		'nama_trainer' =>$namatrainer , 
     		'trainer' =>$trainer ,
@@ -103,6 +117,7 @@ class Training extends CI_Controller {
 				$fileData = $this->upload->data(); // Lakukan Upload Data
 
 				// Membuat Variable untuk dimasukkan ke Database
+				$uploadData[$i]['kode'] = $id;
 				$uploadData[$i]['nik'] = $nik;
 				$uploadData[$i]['file1'] = $fileData['file_name']; 
 			}
@@ -181,6 +196,7 @@ class Training extends CI_Controller {
 			$id = $this->input->post('id');
 			$nik = $this->input->post('nik');
 			$dept =$this->input->post('dept');
+			$nama =$this->input->post('nama');
 			$namatrainer = $this->input->post('namatrainer');
 			$trainer = $this->input->post('trainer');
 			$trainingdate = $this->input->post('trainingdate');
@@ -297,7 +313,25 @@ class Training extends CI_Controller {
 public function delete($id)
 {
 	$where = array('id'=>$id);
+	$where1 = array('kode'=>$id);
+	$nik = $id;
+	$datafile = $this->ModelTraining->UserFile($nik);
+
+	if ($datafile->num_rows() > 0) {
+		foreach ($datafile->result() as $row)
+		{
+			for ($i=0; $i < $datafile->num_rows() ; $i++) 
+			{ 
+	            		# code...
+				$namafile = $row->file1;
+				$pathfile ='./assets/upload/'.$namafile.'';
+				unlink($pathfile) ;
+			}
+		}
+	}
+
 	$this->ModelTraining->delete($where,'tb_training');
+	$this->ModelTraining->delete($where1,'tb_trainingfile');
 	$this->session->set_flashdata('Succes','Data Delete !');
 	redirect(base_url('Training'));
 }

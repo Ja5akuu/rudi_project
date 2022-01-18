@@ -47,8 +47,8 @@
                             <td><?= $data->close_date ?></td>
                             <td><?= $data->kontrak_ke ?></td>
                             <td>
-                            <a href="<?= base_url('master/kontrak/edit/').$data->id ;?>" class="btn btn-primary">Edit</a>
-                            <a href="<?= base_url('master/kontrak/delete/').$data->id ;?>" class="btn btn-danger" onClick="return confirmDialog()">Delete</a>
+                            <a href="<?= base_url('kontrak/edit/').$data->id ;?>" class="btn btn-primary">Edit</a>
+                            <a href="<?= base_url('kontrak/delete/').$data->id ;?>" class="btn btn-danger" onClick="return confirmDialog()">Delete</a>
                             </td>
                           </tr>
                           <?php } ?>

@@ -55,7 +55,7 @@
                    <!-- end coriddor -->
                </div>
                <div class="card-footer">
-                 <button class="btn btn-primary">Submit</button>
+                 <button class="btn btn-primary">Update</button>
                </div>
              </div>
          </div>

@@ -14,54 +14,58 @@
        <div class="row">
          <div class="col-12 col-md-12 col-lg-12">
           <?php
-          foreach ($Traininig as $data1) {
+          foreach ($Lisensi as $data1) {
                   # code...
             ?>
-              <div class="card">
+            <form method='post' action='<?= base_url('Lisensi/update') ?>' enctype="multipart/form-data">
+               <div class="card">
                <div class="card-body">
                  <!-- connection corridor -->
                  <div class="form-row field_wrapperz">
                   <div class="form-group col-md-4 col-12">
-                    <label>Nik :</label>
-                    <input type="hidden" name="id" class="form-control" value="<?= $data1->id ?>" require >
-                    <input type="text" class="form-control" value="<?= $data1->nik ?> - <?= $data1->nama ?>" placeholder="">
+                    <label>Training :</label>
+                     <input type="hidden" name="id" class="form-control" require value="<?= $data1->id ?>">
+                    <select class="form-control select2" name="trainer">
+                      <?php foreach ($Lisensi as $data) { ?>
+                        <option value="<?= $data->trainer ?>" <?php  if($data1->trainer == $data1->trainer) { echo "selected" ;} ?>><?= $data->trainer ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4 col-12">
+                    <label>Nama Trainer :</label>
+                    <select class="form-control select2" name="nama_trainer">
+                      <?php foreach ($trainer as $data) { ?>
+                        <option value="<?= $data->nama_trainer ?>"><?= $data->nama_trainer ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4 col-12">
+                    <label>Karyawan :</label>
+                    <select class="form-control select2" name="nik">
+                      <?php foreach ($trainer as $data) { ?>
+                        <option value="<?= $data->nik ?>"><?= $data->nik ?> - <?= $data->nama ?></option>
+                      <?php } ?>
+                    </select>
                   </div>
                   <div class="form-group col-md-4 col-12">
                    <label for="inputPassword4">Dept :</label>
-                   <input type="text" class="form-control" value="<?= $data1->dept ?>" >
-                 </div>
-                 <div class="form-group col-md-4 col-12">
-                   <label for="inputPassword4">Nama Trainer</label>
-                   <input type="text" name="namatrainer" class="form-control" value="<?= $data1->nama_trainer ?>" require >
-                 </div>
-                 <div class="form-group col-md-4 col-12">
-                   <label for="inputPassword4">Trainer</label>
-                   <input type="text" name="trainer" class="form-control" value="<?= $data1->trainer ?>" require >
-                 </div>
-                 <div class="form-group col-md-4 col-12">
-                   <label for="inputPassword4">Training Date :</label>
-                   <input type="date" name="trainingdate" class="form-control" value="<?= $data1->training_date ?>" require >
-                 </div>
-                 <div class="form-group col-md-4 col-12">
-                   <label for="inputPassword4">Total Waktu :</label>
-                   <input type="text" name="totalwaktu" class="form-control" value="<?= $data1->total_waktu ?>" require >
-                 </div>
-                 <?php
-                 foreach ($Traininig1 as $data) { ?>
-                  <div class="form-group col-md-4 col-12">
-                   <label for="inputPassword4">
-                    Sertifikat
-                  </label><br>
-                  <a href="<?= base_url('assets/upload/').$data->file1; ?>" target="_blank">
-                    <?= $data->file1 ?>
-                    </a>
-                 </div>
-               <?php } ?>
+                   <select name="dept" class="form-control">
+                    <?php foreach ($dept as $data) { ?>
+                      <option value="<?= $data->dept ?>"><?= $data->dept ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+               <div class="form-group col-md-4 col-12">
+                 <label for="inputPassword4">Exp Date :</label>
+                 <input type="date" name="expdate" class="form-control" require value="<?= $data1->expdate ?>">
+               </div>
              </div>
              <!-- end coriddor -->
            </div>
          </div>
        </div>
+       </div>
+     </form>
    <?php } ?>
  </div>
 </div>

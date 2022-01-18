@@ -24,36 +24,32 @@
                    <div class="form-row field_wrapperz">
                         <div class="form-group col-md-4 col-12">
                         <label>Nik :</label>
-												<input type="hidden" name="id" class="form-control" value="<?= $data1->id ?>" require >
-                        <select class="form-control select2" name="nik">
-                          <?php foreach ($karyawan as $data) { ?>
-                            <option value="<?= $data->nik ?>"><?= $data->nik ?> - <?= $data->nama ?></option>
-                          <?php } ?>
-                        </select>
+												<input type="hidden" name="id" class="form-control" value="<?= $data1->id ?>" required >
+                        <input type="text" name="nik" class="form-control" value="<?= $data1->nik ?>" required readonly >
+                       </div>
+                       <div class="form-group col-md-4 col-12">
+                         <label for="inputPassword4">Nama :</label>
+                          <input type="text" name="dept" class="form-control" value="<?= $data1->nama ?>" required readonly >
                        </div>
                        <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Dept :</label>
-                           <select name="dept" class="form-control">
-                              <?php foreach ($dept as $data) { ?>
-                                  <option value="<?= $data->dept ?>"><?= $data->dept ?></option>
-                              <?php } ?>
-                           </select>
+                          <input type="text" name="dept" class="form-control" value="<?= $data1->dept ?>" required readonly >
                        </div>
                         <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Nama Trainer</label>
-                          <input type="text" name="namatrainer" class="form-control" value="<?= $data1->nama_trainer ?>" require >
+                          <input type="text" name="namatrainer" class="form-control" value="<?= $data1->nama_trainer ?>" required >
                        </div>
                         <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Trainer</label>
-                          <input type="text" name="trainer" class="form-control" value="<?= $data1->trainer ?>" require >
+                          <input type="text" name="trainer" class="form-control" value="<?= $data1->trainer ?>" required>
                        </div>
                        <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Training Date :</label>
-                          <input type="date" name="trainingdate" class="form-control" value="<?= $data1->training_date ?>" require >
+                          <input type="date" name="trainingdate" class="form-control" value="<?= $data1->training_date ?>" required >
                        </div>
                        <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Total Waktu :</label>
-                          <input type="text" name="totalwaktu" class="form-control" value="<?= $data1->total_waktu ?>" require >
+                          <input type="text" name="totalwaktu" class="form-control" value="<?= $data1->total_waktu ?>" required >
                        </div>
                         <div class="form-group col-md-4 col-12">
                          <label for="inputPassword4">Sertifikat :</label>
